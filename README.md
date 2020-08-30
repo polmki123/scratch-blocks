@@ -31,7 +31,8 @@ We provide [Scratch](https://scratch.mit.edu) free of charge, and want to keep i
      @ ./shim/blockly_compressed_horizontal.goog.js
      @ ./node_modules/imports-loader?Blockly=../shim/blocks_compressed_horizontal-blockly_compressed_horizontal-messages,goog=../shim/blockly_compressed_horizontal.goog!./node_modules/exports-loader?Blockly!./msg/scratch_msgs.js
      @ ./shim/horizontal.js
-
+'''
+'''
     ERROR in ./shim/blockly_compressed_vertical.js
     Module not found: Error: Can't resolve '../blockly_compressed_vertical' in 'C:\Users\kch\Desktop\Develope\Arduino\scratch-blocks\shim'
      @ ./shim/blockly_compressed_vertical.js 1:17-114
