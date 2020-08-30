@@ -24,28 +24,28 @@ We provide [Scratch](https://scratch.mit.edu) free of charge, and want to keep i
 
 #2020-08-30 Critcal issue clear 
 컴파일 시 이런 문제가 발생한다. 이 문제는 추후 gui와 link를 걸어 컴파일 하는데 에러가 나는 요소 이기 때문에 반드시 고쳐 주어야 한다.
-'''
+```
     ERROR in ./shim/blockly_compressed_horizontal.js
     Module not found: Error: Can't resolve '../blockly_compressed_horizontal' in 'C:\Users\kch\Desktop\Develope\Arduino\scratch-blocks\shim'
      @ ./shim/blockly_compressed_horizontal.js 1:17-116
      @ ./shim/blockly_compressed_horizontal.goog.js
      @ ./node_modules/imports-loader?Blockly=../shim/blocks_compressed_horizontal-blockly_compressed_horizontal-messages,goog=../shim/blockly_compressed_horizontal.goog!./node_modules/exports-loader?Blockly!./msg/scratch_msgs.js
      @ ./shim/horizontal.js
-'''
-'''
+```
+```
     ERROR in ./shim/blockly_compressed_vertical.js
     Module not found: Error: Can't resolve '../blockly_compressed_vertical' in 'C:\Users\kch\Desktop\Develope\Arduino\scratch-blocks\shim'
      @ ./shim/blockly_compressed_vertical.js 1:17-114
      @ ./shim/blockly_compressed_vertical.goog.js
      @ ./node_modules/imports-loader?Blockly=../shim/blocks_compressed_vertical-blockly_compressed_vertical-messages,goog=../shim/blockly_compressed_vertical.goog!./node_modules/exports-loader?Blockly!./msg/scratch_msgs.js
      @ ./shim/vertical.js
-'''
+```
 이 문제는 간단하게 경로만 바꾸어 주면 쉽게 해결 가능하다. 
 .shim/blockly_compressed_horizontal.js 파일에서 
-'''
+```
 module.exports = require('imports-loader?this=>window!exports-loader?Blockly&goog!../blockly_compressed_horizontal');
-'''
+```
 이 문장을 아래와 같이 바꿔준다. 물론 다른 경로(vertical)도 마찬가지로 아래와 같이 변경해주면 더 이상 에러는 나오지 않게 된다.  
-'''
+```
 module.exports = require('imports-loader?this=>window!exports-loader?Blockly&goog!./blockly_compressed_horizontal');
-'''
+```
